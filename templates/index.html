@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        img {
+            width:250px;
+            height:280px;
+        }
+        .recipe{
+            height:350px;
+            width:270px;
+            text-align: center;
+            border:1px solid gray;
+            padding-top: 7px;
+            transition: transform .2s;
+            background-color: white;
+        }
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+            width: 1600px;
+            padding: 10px;
+        }
+        .col-auto {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+        }
+        .name{
+            font-style: normal;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.3rem ;
+        }
+        .recipe:hover{
+            transform: scale(1.03);
+            border: 2px solid black;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+   <div class="row">
+    {% for recipe in recipes %}
+    <div class="col-auto">
+       <a href="{% url 'recipe' recipe.id %}">
+        <div class="recipe">
+            <img src="{{recipe.image}}" alt="">
+            <span class="name">{{recipe.name}}</span>
+           </div>
+       </a>
+    </div>
+    {% endfor %}
+   </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

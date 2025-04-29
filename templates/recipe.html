@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<style>
+    img{
+        width:600px;
+        height:500px;   
+        }
+    .container {
+        width: 1600px;
+        border: 2px solid black;
+        padding: 10px;
+    }
+    .title{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        
+    }
+    .heading{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight:600;
+        font-size: 1.5rem;
+    }
+    .instructions {
+        width: 600px;
+    }
+</style>
+</head>
+<body>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+       <div class="row">
+        <div class="col-auto"><img src="{{recipe.image}}" alt=""></div>
+        <div class="col-auto"><div class="title "><p class="text-center">{{recipe.name}}</p></div>
+            <div class="recipe-details">
+                <div class="ingredients">
+                    <span class="heading">Ingredients</span>
+                    <ul>
+                    {% for ing in recipe.ingredients %}
+        
+                    <li>{{ing}}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="instructions">
+                    <span class="heading">Instructions</span>
+                    <ul>
+                        {% for ins in recipe.instructions %}
+                        <li>{{ins}}</li>
+
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
