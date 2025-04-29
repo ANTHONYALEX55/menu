@@ -19,6 +19,6 @@ from django.urls import path
 from recipe import views 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recipes/',views.recipes_view,name='recipes'),
+    path('',views.recipes_view,name='recipes'),
     path('recipe/<int:id>/',views.one_recipe_view,name='recipe')
 ]
